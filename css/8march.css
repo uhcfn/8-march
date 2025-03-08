@@ -84,11 +84,14 @@ body {
 
 .userPanel {
 	margin: 0 10%;
-	max-height: 80%;
+	max-height: 80vh;
 	position: relative;
-	min-height: 400px;
-	width: 100%;
+	width: 90%;
 	max-width: 800px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 img {
@@ -212,6 +215,48 @@ img {
 }
 
 .userPostcard {
+	width: 100%;
+	height: auto;
+	max-height: 100%;
+	object-fit: contain;
+	border-radius: 8px;
+	opacity: 0;
+	visibility: hidden;
 	transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+	.userPanel {
+		margin: 20px 5%;
+		width: 90%;
+		height: auto;
+		max-height: 80vh;
+	}
+
+	.welcome-message {
+		padding: 20px;
+	}
+
+	.welcome-message span {
+		font-size: 20px;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.userPanel {
+		margin: 10px 2%;
+		width: 96%;
+	}
+
+	.welcome-message span {
+		font-size: 18px;
+	}
+
+	.continue-btn {
+		padding: 8px 20px;
+		font-size: 16px;
+	}
 }
 
