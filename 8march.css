@@ -1,0 +1,206 @@
+/* Обнуление */
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,
+:active {
+	outline: none;
+}
+a:focus,
+a:active {
+	outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+button {
+	cursor: pointer;
+}
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: 400;
+}
+/*--------------------*/
+
+.bigred {
+	font-size: 20px;
+	color: red;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+body {
+	font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column; /* Добавляем для вертикального центрирования */
+	height: 100vh;
+	background: linear-gradient(#ca999946, #e5acac46),
+		url('/img/9592633.jpg') no-repeat center center/cover;
+}
+
+.svg-title {
+	margin-top: 40px;
+}
+
+form {
+	margin-top: 20px; /* Уменьшаем отступ сверху */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start; /* Выравнивание по левому краю */
+}
+
+.form-group {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.form-group.button-group {
+	display: flex;
+	justify-content: center;
+	width: 95%;
+}
+
+.panel {
+	border-radius: 8px;
+	background: #f89eaa;
+	padding: 10px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logIn {
+	width: 100px;
+	height: 30px;
+	background: linear-gradient(135deg, #47cf52 0%, #b0ed73 100%);
+	color: #ffffff;
+	padding: 10px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.userName,
+.userPassword {
+	font-size: 18px;
+	width: 300px;
+	height: 50px;
+	padding: 10px;
+	border: none; /* Убираем обводку */
+	outline: none; /* Убираем обводку при фокусе */
+	border-radius: 8px;
+	margin-right: 10px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Добавляем тень для визуального эффекта */
+	color: #f2e2e2;
+}
+
+.userName,
+.userPassword:focus {
+	border: none; /* Убираем обводку при фокусе */
+	outline: none; /* Убираем обводку при фокусе */
+}
+
+.userPanel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 10%;
+	margin-right: 10%;
+	border-radius: 10px;
+	max-height: 80%;
+}
+
+img {
+	border-radius: 10px;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		box-shadow: inset 0px 0px 10px rgb(255, 255, 255);
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.pulse {
+	animation: pulse 0.3s ease-in-out;
+}
+
+.fade-out {
+	animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
