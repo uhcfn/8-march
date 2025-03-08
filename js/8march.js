@@ -1,43 +1,54 @@
 'use strict';
 
-document
-	.getElementById('loginForm')
-	.addEventListener('submit', function (event) {
-		event.preventDefault();
-		const username = document
-			.getElementById('username')
-			.value.trim()
-			.toLocaleLowerCase()
-			.replace(/\s+/g, '');
-		const password = document.getElementById('password').value;
-		let targetPage = '';
-		const errorMessage = document.getElementById('error-message');
-		const userNameInput = document.getElementById('username');
-		const userPasswordInput = document.getElementById('password');
+const users = {
+	светлана: { password: '141141', page: 'svetlana.html' },
+	вера: { password: '36181', page: 'vera.html' },
+	екатерина: { password: '1212033', page: 'ekaterina.html' },
+};
 
-		switch (true) {
-			case username === 'светлана' && password === '141141':
-				targetPage = 'svetlana.html';
-				break;
-			case username === 'вера' && password === '36181':
-				targetPage = 'vera.html';
-				break;
-			case username === 'екатерина' && password === '1212033':
-				targetPage = 'ekaterina.html';
-				break;
-			default:
-				userNameInput.classList.add('pulse');
-				userPasswordInput.classList.add('pulse');
-				setTimeout(() => {
-					userNameInput.classList.remove('pulse');
-					userPasswordInput.classList.remove('pulse');
-				}, 500);
-				return;
-		}
+// Обработчик формы входа
+document.getElementById('loginForm')?.addEventListener('submit', e => {
+	e.preventDefault();
 
-		errorMessage.style.display = 'none';
+	const username = document
+		.getElementById('username')
+		.value.trim()
+		.toLowerCase();
+	const password = document.getElementById('password').value;
+	const user = users[username];
+
+	if (user?.password === password) {
 		document.body.classList.add('fade-out');
-		setTimeout(() => {
-			window.location.href = targetPage;
-		}, 500); // Время должно совпадать с длительностью анимации
-	});
+		setTimeout(() => (window.location.href = user.page), 500);
+	} else {
+		['username', 'password'].forEach(id => {
+			const element = document.getElementById(id);
+			element.classList.add('pulse');
+			setTimeout(() => element.classList.remove('pulse'), 500);
+		});
+	}
+});
+
+// Обработчик кнопки OK на страницах пользователей
+window.addEventListener('DOMContentLoaded', () => {
+	const continueBtn = document.getElementById('continue-btn');
+	const welcomeMessage = document.getElementById('welcome-message');
+	const postcard = document.getElementById('postcard');
+
+	if (continueBtn && welcomeMessage && postcard) {
+		console.log('Элементы найдены'); // Для отладки
+		continueBtn.addEventListener('click', () => {
+			console.log('Кнопка нажата'); // Для отладки
+			welcomeMessage.classList.remove('active');
+			setTimeout(() => {
+				postcard.classList.add('active');
+			}, 500);
+		});
+	} else {
+		console.log('Не найдены элементы:', {
+			continueBtn: !!continueBtn,
+			welcomeMessage: !!welcomeMessage,
+			postcard: !!postcard,
+		});
+	}
+});
